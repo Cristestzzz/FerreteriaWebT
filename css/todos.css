@@ -1,0 +1,623 @@
+/* Estilo general del header------------------------------------------- */
+header {
+    background-color: #002F6C; /* Fondo azul */
+    color: white; /* Texto blanco */
+    font-family: Arial, sans-serif; /* Tipografía */
+}
+
+/*-----------------------------------------------------------------------*/
+/* Barra superior */ 
+.top-header {
+    display: flex; /* Flexbox para alineación */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    padding: 5px 5px; /* Espaciado interno */
+    text-align: center; /* Centra el contenido del texto */
+}
+
+.logo {
+    font-size: 24px; /* Tamaño del texto del logo */
+    font-weight: bold; /* Negrita para resaltar el logo */
+}
+
+/* Enlaces superiores */
+.top-links {
+    display: flex; /* Flexbox para enlaces */
+    gap: 15px; /* Espaciado entre enlaces */
+    align-items: center; /* Alineación vertical */
+}
+
+.top-links a {
+    text-decoration: none; /* Sin subrayado */
+    color: white; /* Texto blanco */
+    font-size: 10px; /* Tamaño del texto */
+    transition: color 0.3s ease; /* Transición de color al pasar el cursor */
+}
+
+.top-links a:hover {
+    color: #FFD800; /* Amarillo al pasar el cursor */
+}
+
+/*-----------------------------------------------------------------------*/
+
+/* Barra de navegación principal */
+.main-nav {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 5px; /* Espaciado interno */
+}
+
+/* Contenedor de enlaces de navegación */
+.nav-container {
+    display: flex; /* Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    flex-wrap: wrap; /* Permite ajuste en varias líneas */
+    gap: 25px; /* Espaciado entre enlaces */
+}
+
+/* Enlaces de navegación */
+.nav-container a {
+    position: relative; /* Necesario para pseudoelementos */
+    text-decoration: none; /* Sin subrayado */
+    color: #002F6C; /* Azul oscuro */
+    font-size: 10px; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+.nav-container a:hover {
+    color: #0074d9; /* Color naranja al pasar el cursor */
+}
+
+/* Línea animada debajo de los enlaces */
+.nav-container a::after {
+    content: ""; /* Pseudoelemento vacío */
+    position: absolute; /* Posición absoluta en relación al enlace */
+    left: 0; /* Alineado a la izquierda */
+    bottom: -1px; /* Debajo del texto */
+    width: 0; /* Oculto por defecto */
+    height: 2px; /* Grosor de la línea */
+    background-color: #FF6C00; /* Naranja */
+    transition: width 0.3s ease; /* Transición suave */
+}
+
+.nav-container a:hover::after {
+    width: 100%; /* Línea se expande al 100% al pasar el cursor */
+}
+
+/* Estilos generales */
+*, :after, :before {
+    box-sizing: border-box; /* Incluye padding y borde en las dimensiones */
+}
+
+/* Estilos responsivos */
+
+/* Pantallas medianas */
+@media (max-width: 500.98px) {
+    .menu-alt__link {
+        position: relative; /* Posiciona cada enlace */
+        display: flex; /* Flexbox */
+        align-items: center; /* Centra verticalmente */
+        justify-content: space-between; /* Espacia enlaces */
+        padding: 15px 20px; /* Espaciado interno */
+        border-bottom: 1px solid #f3f3f3; /* Separador */
+        color: #002864; /* Azul oscuro */
+        font-size: 1rem; /* Tamaño estándar */
+        font-weight: 600; /* Negrita */
+        line-height: 0.125rem; /* Altura de línea */
+    }
+
+    .menu-alt .menu-alt__link-group a:hover,
+    .menu-alt__link {
+        text-decoration: none; /* Sin subrayado */
+    }
+
+    .nav-container {
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        gap: 5px; /* Reduce espacio entre enlaces */
+    }
+
+    .logo {
+        margin-bottom: 5px; /* Espaciado debajo del logo */
+    }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 480px) {
+    .top-links a,
+    .nav-container a {
+        font-size: 13px; /* Texto más pequeño */
+        text-align: center; /* Centra texto */
+        padding: 12px 0 16px; /* Espaciado extra */
+        line-height: 17px; /* Altura de línea */
+        font-weight: 600; /* Negrita */
+    }
+
+    .vat-toggle {
+        font-size: 12px; /* Texto más pequeño */
+        padding: 5px; /* Ajusta espaciado */
+    }
+
+    .nav-container a {
+        font-size: 12px; /* Texto más pequeño */
+    }
+}
+
+/* Efecto visual en navegación para pantallas pequeñas */
+@media (max-width: 500.98px) {
+    .menu-alt__link--parent:after {
+        content: ""; /* Pseudoelemento vacío */
+        width: 16px; /* Tamaño del ícono */
+        height: 16px;
+        background-size: 100%; /* Tamaño del fondo ajustado */
+        opacity: 1; /* Visible */
+        transition: opacity 0.4s ease; /* Transición suave */
+    }
+}
+
+/* Franjas decorativas */
+
+/* Franja inferior del header */
+.header-franja {
+    width: 95%; /* Ancho relativo */
+    margin: 0 auto; /* Centrado horizontal */
+    height: 0.09px; /* Línea fina */
+    background-color: #004080; /* Azul oscuro */
+    margin-top: -1px; /* Ajuste visual opcional */
+}
+
+/* Header principal iconos y todo */
+.header-main {
+    display: flex; /* Flexbox */
+    justify-content: space-between; /* Espacia elementos */
+    align-items: center; /* Alinea verticalmente */
+    padding: 7px 10px; /* Espaciado interno */
+    background-color: #ffffff; /* Fondo blanco */
+    border-bottom: 1px solid #f0f0f0; /* Separador */
+}
+
+/* Contenedor del logo */
+.logo-container .logo {
+    width: 130px; /* Ancho del logo */
+    margin: 0; /* Asegúrate de que no haya márgenes */
+    padding: 0; /* Asegúrate de que no haya relleno */
+    
+}
+
+/* Contenedor de búsqueda */
+.search-container {
+    position: relative; /* Para posicionar íconos */
+    flex: 1; /* Ocupar espacio restante */
+    margin: 0 5px; /* Espaciado horizontal */
+}
+
+/* Entrada de búsqueda */
+.search-input {
+    width: 100%; /* Ocupa todo el ancho */
+    padding: 10px 10px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde gris */
+    border-radius: 25px; /* Bordes redondeados */
+    font-size: 12px; /* Tamaño del texto */
+}
+
+/* Ícono de búsqueda */
+.search-icon {
+    position: absolute; /* Posición absoluta dentro del contenedor */
+    right: 8px; /* Alineado a la derecha */
+    top: 50%; /* Centrado verticalmente */
+    transform: translateY(-50%); /* Ajuste preciso */
+    color: #0074d9; /* Azul brillante */
+}
+
+/* Contenedor de enlaces adicionales */
+.links-container {
+    display: flex; /* Mantener el contenedor en flexbox */
+    gap: 10px; /* Espaciado entre los íconos */
+    justify-content: flex-end; /* Alinear los íconos al final */
+}
+
+
+/* Enlace individual */
+.link-item {
+    display: flex; /* Flexbox */
+    align-items: center; /* Centra verticalmente */
+    text-decoration: none; /* Sin subrayado */
+    color: #002F6C; /* Azul oscuro */
+    font-size: 10px; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+}
+
+/* Ícono dentro del enlace */
+.link-item i {
+    margin-right: 8px; /* Espaciado entre ícono y texto */
+    color: #0074d9; /* Azul brillante */
+    font-size: 15px; /* Tamaño del ícono */
+}
+
+/* Ocultar el menú hamburguesa en escritorio */
+.hamburger-menu {
+  display: none;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: rgb(29, 31, 187);
+  cursor: pointer;
+}
+
+/* Menú móvil */
+.mobile-menu {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto; /* Habilita el scroll si el contenido es largo */
+  overflow-y: auto;
+  overflow-y: auto; /* Habilita el scroll si el contenido es largo */
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-menu ul li a {
+  display: block;
+  padding: 15px;
+  color: #002F6C;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.mobile-menu ul li a:hover {
+  background-color: #f3f3f3;
+  color: #8a4b21;
+}
+.mobile-menu.open {
+  display: block; /* Muestra el menú cuando se añade la clase .open */
+}
+.menu-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #002F6C; /* Azul oscuro */
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Línea debajo del título */
+    padding-bottom: 10px;
+  }
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-list li {
+    border-bottom: 1px solid #ddd; /* Línea separadora entre categorías */
+}
+.menu-list li a {
+    display: flex;
+    justify-content: space-between; /* Texto a la izquierda y flecha a la derecha */
+    align-items: center;
+    text-decoration: none;
+    color: #002F6C; /* Azul oscuro */
+    font-size: 16px;
+    padding: 10px 0;
+}
+.menu-list li a:hover {
+    background-color: #f3f3f3; /* Fondo al pasar el cursor */
+    color: #8a4b21; /* Naranja */
+  }
+.menu-list li a i {
+    font-size: 14px; /* Tamaño de la flecha */
+    color: #8a4b21; /* Naranja */
+  }
+
+/* Responsive */
+@media (max-width: 667px) {
+  .top-links{
+    display:none; /* Ocultar enlaces principales y secundarios */
+  }
+
+  .main-nav {
+    display: none; /* Ocultar enlaces principales y secundarios */
+  }
+
+  .hamburger-menu {
+    display: block; /* Mostrar el menú hamburguesa */
+  }
+
+  .links-container a span {
+    display: none; /* Ocultar el texto */
+}
+}
+
+
+
+#login-container {
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.wrapper h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/* ahora este es del footer*/
+footer {
+    background-color: #002F6C;
+    color: rgb(250, 250, 250);
+    padding-top: 1px; /* Espacio superior */
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap; /* Ajusta las secciones automáticamente en pantallas pequeñas */
+  }
+  
+  /* Estilos para la sección de redes sociales */
+  .footer-section {
+    text-align: center;
+    margin-top: -11px;
+    flex: 1 1 200px; /* Secciones flexibles con un ancho mínimo */
+    margin-bottom: -5px; /* Espaciado entre secciones en pantallas pequeñas */
+  }
+  
+  .footer__heading {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #5aa0ff; /* Color para el título */
+  }
+  
+  .social-icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espaciado entre los iconos */
+  }
+  
+  .social-icons a {
+    text-decoration: none;
+    color: white; /* Color de los iconos */
+    font-size: 35px; /* Tamaño de los iconos */
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #FFD800; /* Cambia el color al pasar el cursor */
+    transform: scale(1.8); /* Aumenta el tamaño al pasar el cursor */
+  }
+  
+  /* Ajustes para dispositivos pequeños */
+  @media (max-width: 100px) {
+    .footer-container {
+      flex-direction: column; /* Apila las secciones verticalmente */
+      align-items: center; /* Centra las secciones */
+    }
+  
+    .footer-section {
+      flex: 1 1 auto; /* Secciones adaptativas */
+      margin-bottom: 1px; /* Espaciado adicional entre secciones */
+    }
+  
+    .footer__heading {
+      font-size: 16px; /* Reduce el tamaño del título */
+    }
+  
+    .social-icons {
+      gap: 10px; /* Menos espacio entre los iconos */
+    }
+  
+    .social-icons a {
+      font-size: 20px; /* Iconos ligeramente más pequeños */
+    }
+  }
+  
+  /* Asegura que el contenedor principal ocupe toda la altura de la página */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altura mínima: 100% del viewport */
+    margin: 0;
+  }
+  
+  .content {
+    flex: 1; /* Ocupa el espacio restante entre el header y el footer */
+  }
+   /*ahora este sera del icono de whatsapp*/
+   /* Icono de WhatsApp */
+.whatsapp-icon {
+    position: fixed; /* Fija el icono en una posición específica de la pantalla */
+    bottom: 20px; /* Separación desde el borde inferior de la pantalla */
+    right: 20px; /* Separación desde el borde derecho de la pantalla */
+    width: 60px; /* Ancho del icono */
+    height: 60px; /* Altura del icono */
+    background-color: #25D366; /* Color verde característico de WhatsApp */
+    border-radius: 50%; /* Forma circular */
+    display: flex; /* Define un contenedor flexible para centrar el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra del icono para darle un efecto flotante */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    transition: transform 0.3s ease; /* Transición suave para el efecto hover */
+  }
+  
+  /* Imagen dentro del icono de WhatsApp */
+  .whatsapp-icon img {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 100%; /* Ocupa toda la altura del contenedor */
+  }
+  
+  /* Efecto hover del icono */
+  .whatsapp-icon:hover {
+    transform: scale(1.5); /* Aumenta el tamaño del icono al pasar el cursor */
+  }
+  
+
+/* Contenedor de productos ---------------------------*/
+#products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #ffffff; /* Color de fondo claro */
+  }
+  
+  /* Tarjeta de producto */
+  .card-producto {
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde ligero */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para el efecto de elevación */
+    width: 250px; /* Ancho de cada tarjeta */
+    overflow: hidden; /* Ocultar contenido que sobresale */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card-producto:hover {
+    transform: scale(1.05); /* Escalar ligeramente al pasar el mouse */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+  }
+  
+  /* Imagen del producto */
+  .card-producto img {
+    width: 208.68px; /* Ancho fijo */
+    height: 208.68px; /* Altura fija */
+    object-fit: cover; /* Ajustar la imagen sin deformarla */
+    border-bottom: 1px solid #ddd; /* Separador inferior */
+  }
+  
+  
+  /* Descripción del producto */
+  .card-producto .descripcion {
+    padding: 16px;
+    text-align: center;
+  }
+  
+  /* Título del producto */
+  .card-producto h3 {
+    font-size: 18px;
+    color: #002864;
+    margin: 0 0 8px;
+    font-weight: bold;
+  }
+  
+  /* Precio del producto */
+  .card-producto p {
+    font-size: 16px;
+    color: #002864;
+    margin: 8px 0;
+  }
+  
+  /* Botón de añadir al carrito */
+  .btn-agregar-carrito {
+    background-color: #5aa0ff; /* Azul predeterminado */
+    color: #000; /* Texto blanco */
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espacio entre el ícono y el texto */
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-agregar-carrito i {
+    font-size: 16px; /* Tamaño del ícono */
+  }
+  
+  .btn-agregar-carrito:hover {
+    background-color: #72adff; /* Azul más oscuro al pasar el mouse */
+  }
+  
+  /* Mensajes de error o vacíos */
+  #products-container p {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    width: 100%;
+  }
+  /* Productos*/
+.container-productos{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  border-bottom: 1px solid #fff;
+  align-items: center;
+}
+.container-productos .btn-verCategorias{
+  background-color: #474747;
+  padding: 0 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+.container-productos .btn-verCategorias:hover{
+  transform: scale(1.1);
+}
+
+.productos{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  max-width: 22rem;
+  margin: 0 1rem 3rem 1rem;
+
+}
+.card img{
+  object-fit: cover;
+  height: 22rem;
+}
+.card .descripcion{
+  margin-left: 1rem;
+}
+.card p{
+  margin:0.2rem 0;
+}
+/*Estrellas*/
+.card p i{
+  color: #E92E5D;
+  font-size: 1.2rem;
+}
+
+.card .nombre-producto{
+  transition: color .2s ease-out;
+}
+.card .nombre-producto:hover{
+  color: green;
+}
+  
+  
