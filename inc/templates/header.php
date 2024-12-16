@@ -14,9 +14,8 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/todos.css">    
 
-  
     <title>Ferreteria</title>
-    </head>
+</head>
 <body>
 <header>
 
@@ -41,7 +40,22 @@
   <div class="links-container">
     <a href="#" class="link-item"><i class="fas fa-store"></i><span>Localizador de sucursales</span></a>
     <a href="carrito.php" class="link-item"><i class="fas fa-shopping-cart"></i><span>Mi carrito </span></a>
-    <a href="login.php"  class="link-item"><i class="fas fa-user"></i> <span> Iniciar sesión o registrarse</span></a>
+    
+    <?php
+    // Iniciar la sesión solo si no está activa
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start(); // Iniciar la sesión
+    }
+    
+    if (isset($_SESSION["id_usuario"])) {
+        // Si el usuario está logueado, mostrar su nombre y opción de cerrar sesión
+        echo '<a href="#" class="link-item"><i class="fas fa-user"></i> <span>' . htmlspecialchars($_SESSION["nombre_usuario"]) . '</span></a>';
+        echo '<a href="#" id="btnCerrarSesion" class="link-item"><i class="fas fa-sign-out-alt"></i></a>';
+    } else {
+        // Si no está logueado, mostrar opción de iniciar sesión
+        echo '<a href="login.php" class="link-item"><i class="fas fa-user"></i> <span> Iniciar sesión o registrarse</span></a>';
+    }
+    ?>
   </div>
   <!-- Botón menú hamburguesa -->
   <button class="hamburger-menu" id="hamburger-menu">☰</button>
@@ -71,7 +85,7 @@
 <div class="mobile-menu" id="mobile-menu">
   <ul class="menu-list">
     <li><a href="#"><i class="fas fa-tools"></i><span> Nuestros servicios</span></a></li>
-    <li><a href="#"><i class="fas fa-calculator"></i><span> Estimación de proyectos</span></a></li>
+ <li><a href="#"><i class="fas fa-calculator"></i><span> Estimación de proyectos</span></a></li>
     <li><a href="#"><i class="fas fa-headset"></i><span>¿Necesitas ayuda?</span></a></li>
 
     <h3 class="menu-title">Categorías</h3>

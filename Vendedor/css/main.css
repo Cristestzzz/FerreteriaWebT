@@ -1,0 +1,458 @@
+/* Añadir normalize.css al proyecto para mejores resultados */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+    display: inline-block;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #00509E;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #003f7d;
+}
+h2 {
+    margin: 0;
+    font-size: 2.4rem;
+    color: #002F6C;
+}
+h3 {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 2.8rem;
+    color: #002F6C;
+}
+.wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.swal2-popup {
+    font-size: 1.5rem !important;
+}
+
+/* Side header */
+.side-header {
+    background-color: #002F6C;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo .logo-img {
+    width: 15rem;
+    margin-right: 1rem;
+}
+.logo .logo-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.side-header .btn-out {
+    margin: 0 2rem;
+    font-size: 1.6rem;
+    color: #fff;
+    cursor: pointer;
+}
+.side-header .btn-out:hover {
+    color: #d1d1d1;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Navegacion */
+.navegacion {
+    display: flex;
+    flex-direction: column;
+    background-color: #003f7d;
+    width: 100%;
+    max-width: 22rem;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+.navegacion h2 {
+    padding: 2rem 0;
+    border-bottom: 1px solid #00509E;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+.navegacion a {
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0;
+    padding: 0.8rem 2rem;
+    color: #fff;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease-out;
+}
+.navegacion a:hover {
+    background-color: #00509E;
+}
+.active {
+    background-color: #00509E;
+}
+.navegacion a i {
+    transition: transform 0.2s ease-in-out;
+}
+.rotate {
+    transform: rotateZ(-90deg);
+}
+
+.navegacion ul {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.2s ease-in-out;
+}
+.navegacion ul a {
+    font-size: 1.6rem;
+    padding-left: 4rem;
+}
+.navegacion .show {
+    height: auto;
+}
+
+/* Footer */
+.copyright {
+    background-color: #002F6C;
+    padding: 1rem 0;
+}
+.copyright p {
+    margin: 0;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #fff;
+}
+
+/* Dashboard */
+.contenedor-dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+}
+.card-info {
+    flex: 1 1 calc(25% - 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    min-height: 15rem;
+    margin: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.card-info p {
+    margin: 0;
+    color: #333;
+}
+.card-info .cantidad {
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: #333;
+}
+.card-info i {
+    font-size: 5rem;
+    color: rgba(0, 0, 0, 0.1);
+    align-self: flex-end;
+}
+.card-blue {
+    border-left: 5px solid #00509E;
+}
+.card-red {
+    border-left: 5px solid #e74c3c;
+}
+.card-yellow {
+    border-left: 5px solid #f1c40f;
+}
+.card-green {
+    border-left: 5px solid #2ecc71;
+}
+
+/* Ajustes para responsive Dashboard */
+@media (max-width: 1200px) {
+    .card-info {
+        flex: 1 1 calc(33.333% - 2rem);
+    }
+}
+@media (max-width: 768px) {
+    .card-info {
+        flex: 1 1 calc(50% - 2rem);
+    }
+}
+@media (max-width: 576px) {
+    .card-info {
+        flex: 1 1 100%;
+    }
+}
+
+/* Contenido General (lista - crear) */
+.container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+.contenedor-option {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 2rem;
+}
+.contenedor-option h2 {
+    text-align: center;
+    background-color: #fff;
+    padding: 1rem;
+    border-bottom: 3px solid #002F6C;
+    margin-bottom: 1rem;
+    font-size: 2.4rem;
+    color: #002F6C;
+}
+
+.contenedor-lista table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+.contenedor-lista table img {
+    width: 10rem;
+    object-fit: cover;
+    height: 10rem;
+}
+.contenedor-lista table th, td {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+.contenedor-lista table th {
+    background-color: #f9fafb;
+    font-size: 1.6rem;
+    color: #333;
+}
+
+/* Botones de editar y borrar */
+.btn-editar, .btn-borrar {
+    border-radius: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    margin-left: 0.5rem;
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+}
+.btn-editar {
+    background-color: #00509E;
+}
+.btn-borrar {
+    background-color: #e74c3c;
+}
+
+/* Crear nuevo registro y editar */
+.contenedor-option .contenedor-añadir, .contenedor-option .contenedor-editar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    color: #333;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input, select {
+    font-family: inherit;
+    font-size: 1.6rem;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    width: 100%;
+}
+.contenedor-option .contenedor-añadir form, .contenedor-option .contenedor-editar form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+form .form-field {
+    border: 1px solid #ccc;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+}
+
+.container-input-file {
+    padding-bottom: 0.5rem;
+}
+::-webkit-file-upload-button, input[type="submit"] {
+    border: 0;
+    background-color: #00509E;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+.container-input-submit {
+    display: flex;
+    justify-content: center;
+}
+
+input[type="file"], input[type="submit"] {
+    cursor: pointer;
+}
+input[type="submit"] {
+    width: auto;
+}
+
+/* Página de editar */
+.contenedor-option .contenedor-editar {
+    display: flex;
+    flex-direction: column;
+}
+form .imagen-actual {
+    width: 15rem;
+    margin-bottom: 1rem;
+}
+
+/* Notificaciones */
+.sombra {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+}
+
+.notificacion {
+    position: fixed;
+    top: 6.5rem;
+    right: 1rem;
+    padding: 1rem 2rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-color: #fff;
+    border-left: 5px solid;
+    color: #333;
+}
+.visible {
+    opacity: 1;
+}
+/* Colores de la notificación */
+.correcto {
+    border-color: #2ecc71;
+}
+.error {
+    border-color: #e74c3c;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    .navegacion {
+        width: 100%;
+        max-width: none;
+        min-height: auto;
+    }
+    .contenedor-dashboard {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card-info {
+        flex: 1 1 calc(100% - 2rem);
+        max-width: 90%;
+    }
+    .contenedor-option .contenedor-añadir form, .contenedor-option .contenedor-editar form {
+        width: 90%;
+    }
+    .contenedor-lista table th, td {
+        font-size: 1.4rem;
+    }
+    .contenedor-lista table img {
+        width: 8rem;
+        height: 8rem;
+    }
+    .side-header {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-info {
+        padding: 1rem;
+    }
+    .card-info .cantidad {
+        font-size: 2.4rem;
+    }
+    .card-info i {
+        font-size: 3rem;
+    }
+}
+
+
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.btn-vender {
+    background-color: #28a745; /* Verde */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-vender:hover {
+    background-color: #218838; /* Verde más oscuro */
+}

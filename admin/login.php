@@ -11,15 +11,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Aquí deberías verificar las credenciales con la base de datos
-    // Ejemplo de credenciales (esto debería ser reemplazado con una consulta a la base de datos)
-    if ($username === 'admin' && $password === '1234') { // Cambia esto por tu lógica de autenticación
-        $_SESSION['LoggedIn'] = true;
-        header('Location: index.php'); // Redirigir al dashboard
-        exit();
+    // Conectar a la base de datos
+    require "inc/funciones/conexionbd.php"; // Asegúrate de que la ruta sea correcta
+
+    // Consulta para verificar las credenciales y el tipo de usuario
+    $sql = "SELECT id_usuario, pass_usuario FROM usuarios WHERE nombre_usuario = ? AND tipo_usuario = 'administrador'";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows === 1) {
+        $usuario = $resultado->fetch_assoc();
+        $pass_hashed = $usuario['pass_usuario'];
+
+        // Verificar la contraseña
+        if (password_verify($password, $pass_hashed)) {
+            $_SESSION['LoggedIn'] = true;
+            $_SESSION['id_usuario'] = $usuario['id_usuario']; // Guardar el ID del usuario en la sesión
+            header('Location: index.php'); // Redirigir al dashboard
+            exit();
+        } else {
+            $error_message = "Usuario o contraseña incorrectos.";
+        }
     } else {
         $error_message = "Usuario o contraseña incorrectos.";
     }
+
+    $stmt->close();
+    $conn->close();
 }
 ?>
 

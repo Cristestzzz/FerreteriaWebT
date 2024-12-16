@@ -1,13 +1,14 @@
 <?php
 require "../funciones/conexionbd.php";
 
+// Manejo del cierre de sesión
 if ($_POST['tipoAccion'] === "loginOut") {
     session_start();
 
-    // restablece todas las variables de sesión a sus valores predeterminados
+    // Restablecer todas las variables de sesión a sus valores predeterminados
     $_SESSION = array();
 
-    // destruye la sesión actual
+    // Destruir la sesión actual
     session_destroy();
 
     $respuesta = array(
@@ -16,19 +17,20 @@ if ($_POST['tipoAccion'] === "loginOut") {
     echo json_encode($respuesta);
 }
 
+// Manejo del inicio de sesión
 else if ($_POST["tipoAccion"] === "login") {
     $nombre_usuario = $_POST["nombre_usuario"];
     $pass_usuario = $_POST["pass_usuario"];
     
     try {
-        // Consulta para verificar que el usuario es un administrador
-        $sql = "SELECT id_usuario, nombre_usuario, pass_usuario, total_usuario FROM usuarios WHERE nombre_usuario = ? AND tipo_usuario = 'administrador'";
+        // Consulta para verificar que el usuario es un vendedor
+        $sql = "SELECT id_usuario, nombre_usuario, pass_usuario, total_usuario FROM usuarios WHERE nombre_usuario = ? AND tipo_usuario = 'vendedor'";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $nombre_usuario);
         $stmt->execute();
         $resultado = $stmt->get_result();
 
-        if ($resultado->num_rows === 0) { // El usuario no existe o no es administrador
+        if ($resultado->num_rows === 0) { // El usuario no existe o no es vendedor
             $respuesta = array(
                 "respuesta" => "error",
                 "accion" => "login"

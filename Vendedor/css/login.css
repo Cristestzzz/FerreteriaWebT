@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #111;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  background: #000;
+  box-shadow: 0 0 50px #0ef;
+  border-radius: 20px;
+  padding: 40px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  margin: 20px;
+}
+
+/* Animación de cambio de color */
+.wrapper:hover {
+  animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+h2 {
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.input-group {
+  position: relative;
+  margin: 25px 0;
+  border-bottom: 2px solid #fff;
+  transition: 0.3s ease-in-out;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
+}
+
+.input-group input {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 0 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  border-bottom: 2px solid #0ef;
+  background-color: rgba(14, 239, 255, 0.1);
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+  top: -10px;
+  font-size: 14px;
+  color: #0ef;
+}
+
+.remember {
+  margin: 0;
+  padding: 10px 0;
+}
+
+.remember label {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.remember label input {
+  accent-color: #0ef;
+}
+
+button {
+  width: 100%;
+  height: 45px;
+  background: #0ef;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(14, 239, 255, 0.6);
+}
+
+button:hover {
+  background: #00b8cc;
+  box-shadow: 0 0 20px rgba(0, 184, 204, 0.8);
+}
+
+button:active {
+  background: #008f99;
+}
+
+.signUp-link {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signUp-link p {
+  color: #aaa;
+}
+
+.signUp-link p a {
+  color: #0ef;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.signUp-link p a:hover {
+  color: #00b8cc;
+  text-decoration: underline;
+}
+
+/* Responsiveness para pantallas pequeñas */
+@media (max-width: 480px) {
+  .wrapper {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-shadow: none;
+    margin: 20px 10px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .input-group input {
+    font-size: 14px;
+  }
+
+  button {
+    height: 45px;
+    font-size: 14px;
+  }
+
+  .signUp-link p {
+    font-size: 12px;
+  }
+
+  /* Mejorar la visualización de la transición entre las vistas */
+  .wrapper.active .form-wrapper.sign-in {
+    transform: translateY(-500px);
+  }
+
+  .wrapper.active .form-wrapper.sign-up {
+    transform: translateY(0);
+  }
+}
+
+/* Responsividad adicional para pantallas medianas */
+@media (max-width: 768px) {
+  .wrapper {
+    width: 90%;
+    height: auto;
+    padding: 30px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .input-group input {
+    font-size: 15px;
+  }
+
+  button {
+    height: 45px;
+    font-size: 15px;
+  }
+}
