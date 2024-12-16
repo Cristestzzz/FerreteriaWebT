@@ -44,7 +44,9 @@ require "inc/templates/header.php";
                             <td><?php echo $usuario["correo_usuario"]?></td>
                             <td>
                                 <a class="btn-editar" href="usuarios-editar.php?id=<?php echo $usuario["id_usuario"]?>"><i class="fa-solid fa-pen"></i></a>
+                                
                             </td>
+                        
                         </tr>
                     <?php }
                         $conn->close();

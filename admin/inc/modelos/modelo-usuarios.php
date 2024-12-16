@@ -99,4 +99,33 @@ else if ($_POST['tipoAccion'] === "editar") {
 
     echo json_encode($respuesta);
 }
+else if ($_POST['tipoAccion'] === "borrar") {
+    $id_registro = $_POST['id_registro'];
+    try {
+        $stmt = $conn->prepare("DELETE FROM usuarios WHERE id_usuario = ?");
+        $stmt->bind_param("i", $id_registro);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            $respuesta = array(
+                "respuesta" => "exito"
+            );
+        } else {
+            $respuesta = array(
+                "respuesta" => "error",
+                "mensaje" => "No se encontró el usuario o ya ha sido eliminado."
+            );
+        }
+        
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        $respuesta = array(
+            "respuesta" => "error",
+            "mensaje" => $e->getMessage() // Devuelve el mensaje de error
+        );
+    }
+
+    echo json_encode($respuesta);
+}
 ?>
